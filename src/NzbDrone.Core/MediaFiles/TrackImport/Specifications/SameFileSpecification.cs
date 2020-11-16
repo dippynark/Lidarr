@@ -41,12 +41,6 @@ namespace NzbDrone.Core.MediaFiles.TrackImport.Specifications
                 return Decision.Accept();
             }
 
-            if (trackFiles.First().Value.Size == localTrack.Size)
-            {
-                _logger.Debug("'{0}' Has the same filesize as existing file", localTrack.Path);
-                return Decision.Reject("Has the same filesize as existing file");
-            }
-
             return Decision.Accept();
         }
     }

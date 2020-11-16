@@ -130,6 +130,7 @@ PackageLinux()
 
 PackageMacOS()
 {
+    return 0
     local framework="$1"
     
     ProgressStart "Creating MacOS Package for $framework"
@@ -162,6 +163,7 @@ PackageMacOS()
 
 PackageMacOSApp()
 {
+    return 0
     local framework="$1"
     
     ProgressStart "Creating macOS App Package for $framework"
@@ -184,6 +186,7 @@ PackageMacOSApp()
 
 PackageWindows()
 {
+    return 0
     local framework="$1"
     
     ProgressStart "Creating Windows Package for $framework"
@@ -227,6 +230,7 @@ Package()
 
 PackageTests()
 {
+    return 0
     local framework="$1"
     local runtime="$2"
 
@@ -319,11 +323,11 @@ then
     Build
     if [[ -z "$RID" || -z "$FRAMEWORK" ]];
     then
-        PackageTests "netcoreapp3.1" "win-x64"
+        #PackageTests "netcoreapp3.1" "win-x64"
         PackageTests "netcoreapp3.1" "linux-x64"
-        PackageTests "netcoreapp3.1" "linux-musl-x64"
-        PackageTests "netcoreapp3.1" "osx-x64"
-        PackageTests "net462" "linux-x64"
+        #PackageTests "netcoreapp3.1" "linux-musl-x64"
+        #PackageTests "netcoreapp3.1" "osx-x64"
+        #PackageTests "net462" "linux-x64"
     else
         PackageTests "$FRAMEWORK" "$RID"
     fi
@@ -351,14 +355,14 @@ then
 
     if [[ -z "$RID" || -z "$FRAMEWORK" ]];
     then
-        Package "netcoreapp3.1" "win-x64"
+        #Package "netcoreapp3.1" "win-x64"
         Package "netcoreapp3.1" "linux-x64"
-        Package "netcoreapp3.1" "linux-musl-x64"
-        Package "netcoreapp3.1" "linux-arm64"
-        Package "netcoreapp3.1" "linux-musl-arm64"
-        Package "netcoreapp3.1" "linux-arm"
-        Package "netcoreapp3.1" "osx-x64"
-        Package "net462" "linux-x64"
+        #Package "netcoreapp3.1" "linux-musl-x64"
+        #Package "netcoreapp3.1" "linux-arm64"
+        #Package "netcoreapp3.1" "linux-musl-arm64"
+        #Package "netcoreapp3.1" "linux-arm"
+        #Package "netcoreapp3.1" "osx-x64"
+        #Package "net462" "linux-x64"
     else
         Package "$FRAMEWORK" "$RID"
     fi
